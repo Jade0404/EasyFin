@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EasyFin — จัดการการเงินให้ง่ายขึ้น</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/shared.css" />
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+
+  <!-- ======================================================
+       HEADER
+  ====================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a href="index.html" class="logo-link" aria-label="EasyFin หน้าหลัก">
+        <img src="ProjectProposal.png" alt="EasyFin Logo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <span class="logo-fallback">Easy<em>Fin</em></span>
+      </a>
+
+      <nav class="site-nav" aria-label="เมนูหลัก">
+        <a href="agent-demo.html">Agent Demo</a>
+        <a href="sme-demo.html">SME Demo</a>
+        <a href="#features">ฟีเจอร์</a>
+        <a href="#contact">ติดต่อ</a>
+      </nav>
+
+      <a href="agent-demo.html" class="btn btn-primary header-cta">ดูตัวอย่าง</a>
+
+      <button class="hamburger" id="hamburger" aria-label="เปิด/ปิดเมนู" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="เมนูมือถือ">
+      <a href="agent-demo.html">Agent Demo</a>
+      <a href="sme-demo.html">SME Demo</a>
+      <a href="#features">ฟีเจอร์</a>
+      <a href="#contact">ติดต่อ</a>
+      <a href="agent-demo.html" class="btn btn-primary">ดูตัวอย่าง</a>
+    </nav>
+  </header>
+
+  <!-- ======================================================
+       HERO
+  ====================================================== -->
+  <section class="hero page-section">
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-eyebrow">All-in-One Financial Platform สำหรับคนไทย</span>
+        <h1>จัดการการเงินครบจบ<br /><span>ในที่เดียว</span></h1>
+        <p class="hero-sub">
+          EasyFin รวม 3 เครื่องมือสำคัญ — ภาษี, การลงทุน, และประกัน —
+          ให้คุณบริหารการเงินได้อย่างชาญฉลาดและมั่นคง<br />
+          <span style="font-size:15px; opacity:0.7;">Make Your Financial Easier</span>
+        </p>
+        <div class="hero-ctas">
+          <a href="agent-demo.html" class="btn btn-accent btn-lg">ดู Agent Demo</a>
+          <a href="sme-demo.html"   class="btn btn-outline btn-lg">ดู SME Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       3-PILLAR VALUE PROPS
+  ====================================================== -->
+  <section class="value-section page-section">
+    <div class="container">
+      <p class="section-label">3 เสาหลัก</p>
+      <h2 class="section-heading">ครอบคลุมทุกมิติ<span>การเงินของคุณ</span></h2>
+      <p class="section-sub">
+        หนึ่งแพลตฟอร์มที่จัดการได้ทั้งภาษี การลงทุน และประกันภัย พร้อม AI ที่ช่วยแนะนำอย่างชาญฉลาด
+      </p>
+
+      <div class="value-grid">
+
+        <!-- Pillar 1: Tax -->
+        <div class="value-card" data-reveal data-reveal-delay="0">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <div class="value-stat">฿12K</div>
+          <h3>จัดการภาษี<br /><span style="font-size:14px;font-weight:400;color:var(--color-text-muted);">Tax Management</span></h3>
+          <p>คำนวณภาษีอัตโนมัติ วางแผนลดหย่อนด้วย RMF / LTF / SSF และรับคำแนะนำเพื่อประหยัดภาษีได้สูงสุด</p>
+        </div>
+
+        <!-- Pillar 2: Investment -->
+        <div class="value-card" data-reveal data-reveal-delay="150">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+              <polyline points="17 6 23 6 23 12"/>
+            </svg>
+          </div>
+          <div class="value-stat">+8.5%</div>
+          <h3>บริหารการลงทุน<br /><span style="font-size:14px;font-weight:400;color:var(--color-text-muted);">Investment Portfolio</span></h3>
+          <p>ติดตาม Portfolio หุ้น กองทุน และสินทรัพย์ทุกประเภทในที่เดียว พร้อมรายงาน YTD Return แบบ Real-time</p>
+        </div>
+
+        <!-- Pillar 3: Insurance -->
+        <div class="value-card" data-reveal data-reveal-delay="300">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <div class="value-stat">360°</div>
+          <h3>จัดการประกันภัย<br /><span style="font-size:14px;font-weight:400;color:var(--color-text-muted);">Insurance Management</span></h3>
+          <p>วิเคราะห์ความคุ้มครองที่มี ค้นหาช่องว่างที่ยังขาด และจับคู่กรมธรรม์ที่เหมาะสมกับสถานะการเงินของคุณ</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       FEATURES SECTION
+  ====================================================== -->
+  <section class="features-section page-section" id="features">
+    <div class="container">
+      <p class="section-label">ฟีเจอร์หลัก</p>
+      <h2 class="section-heading">เครื่องมือที่<span>ออกแบบมาเพื่อคุณ</span></h2>
+      <p class="section-sub">
+        ไม่ว่าจะเป็น Freelancer, SME, หรือ Financial Agent — EasyFin มีเครื่องมือที่ใช่สำหรับทุกคน
+      </p>
+
+      <div class="features-grid">
+
+        <div class="feature-card" data-reveal>
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="feature-text">
+            <h3>Financial Health Score</h3>
+            <p>AI วิเคราะห์สุขภาพการเงินของคุณแบบ Real-time คะแนน 0–100 พร้อมคำแนะนำที่นำไปใช้ได้ทันที</p>
+          </div>
+        </div>
+
+        <div class="feature-card" data-reveal data-reveal-delay="100">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div class="feature-text">
+            <h3>สร้าง Proposal อัตโนมัติ</h3>
+            <p>สร้างรายงานและข้อเสนอแนะทางการเงินแบบมืออาชีพด้วยคลิกเดียว เหมาะสำหรับ Agent และที่ปรึกษาการเงิน</p>
+          </div>
+        </div>
+
+        <div class="feature-card" data-reveal data-reveal-delay="200">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <div class="feature-text">
+            <h3>วิเคราะห์ช่องว่างความคุ้มครอง</h3>
+            <p>ระบุส่วนที่ยังขาดความคุ้มครองทั้งชีวิต สุขภาพ และโรคร้ายแรง พร้อมแนะนำผลิตภัณฑ์ที่เหมาะสม</p>
+          </div>
+        </div>
+
+        <div class="feature-card" data-reveal data-reveal-delay="300">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div class="feature-text">
+            <h3>วางแผนภาษีอัจฉริยะ</h3>
+            <p>คำนวณภาษีแบบ Progressive Rate พร้อมจำลองสถานการณ์การลดหย่อนด้วย RMF LTF SSF และอื่น ๆ</p>
+          </div>
+        </div>
+
+        <div class="feature-card" data-reveal data-reveal-delay="400">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+          </div>
+          <div class="feature-text">
+            <h3>ติดตาม Portfolio ทุกสินทรัพย์</h3>
+            <p>รวมหุ้น กองทุนรวม RMF/LTF/SSF สินทรัพย์ดิจิทัล และเงินสด ไว้ใน Dashboard เดียว</p>
+          </div>
+        </div>
+
+        <div class="feature-card" data-reveal data-reveal-delay="500">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="feature-text">
+            <h3>CRM สำหรับ Financial Agent</h3>
+            <p>ติดตามลูกค้า จัดการ Follow-up และดูประวัติ Proposal ทั้งหมด สะดวกในที่เดียวโดยไม่ต้องใช้ระบบแยก</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       STATS BAND
+  ====================================================== -->
+  <section class="stats-band">
+    <div class="container">
+      <div class="stats-band-inner">
+        <div data-reveal>
+          <span class="stat-value text-mono">500+</span>
+          <span class="stat-label">ผู้ใช้งาน EasyFin</span>
+        </div>
+        <div data-reveal data-reveal-delay="150">
+          <span class="stat-value text-mono">฿12K</span>
+          <span class="stat-label">ประหยัดภาษีเฉลี่ยต่อปี</span>
+        </div>
+        <div data-reveal data-reveal-delay="300">
+          <span class="stat-value text-mono">3-in-1</span>
+          <span class="stat-label">ภาษี + การลงทุน + ประกัน</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       WHO IS EASYFIN FOR
+  ====================================================== -->
+  <section class="trust-section page-section">
+    <div class="container">
+      <div class="trust-inner">
+        <p class="section-label">เหมาะสำหรับ</p>
+        <h2 class="section-heading">
+          รองรับทุกกลุ่มผู้ใช้<span>ทางการเงิน</span>
+        </h2>
+        <div class="trust-logos">
+          <div class="trust-logo-item">Freelancer &amp; Self-Employed</div>
+          <div class="trust-logo-item">SME เจ้าของธุรกิจ</div>
+          <div class="trust-logo-item">Financial Agent</div>
+          <div class="trust-logo-item">Insurance Agent</div>
+          <div class="trust-logo-item">นักลงทุนรายย่อย</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       CTA BANNER
+  ====================================================== -->
+  <section class="cta-banner page-section" id="contact">
+    <div class="container">
+      <h2>พร้อมเปลี่ยนวิธีบริหารการเงิน?</h2>
+      <p>ทดลองใช้ Interactive Demo ได้เลยตอนนี้ ไม่ต้องสมัครสมาชิก</p>
+      <div class="cta-banner-btns">
+        <a href="agent-demo.html" class="btn btn-accent btn-lg">ดู Agent Demo</a>
+        <a href="sme-demo.html"   class="btn btn-outline btn-lg">ดู SME Demo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       FOOTER
+  ====================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span class="footer-copy">&copy; 2026 EasyFin &mdash; Make Your Financial Easier</span>
+      <div class="footer-links">
+        <a href="#">นโยบายความเป็นส่วนตัว</a>
+        <a href="#">ข้อกำหนดการใช้งาน</a>
+        <a href="#contact">ติดต่อเรา</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/shared.js"></script>
+</body>
+</html>

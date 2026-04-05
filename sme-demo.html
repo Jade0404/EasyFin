@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EasyFin — SME Demo | แดชบอร์ดการเงินครบวงจร</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/shared.css" />
+  <link rel="stylesheet" href="css/sme-demo.css" />
+</head>
+<body>
+
+  <!-- ======================================================
+       HEADER
+  ====================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a href="index.html" class="logo-link" aria-label="EasyFin หน้าหลัก">
+        <img src="ProjectProposal.png" alt="EasyFin Logo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <span class="logo-fallback">Easy<em>Fin</em></span>
+      </a>
+
+      <nav class="site-nav" aria-label="เมนูหลัก">
+        <a href="agent-demo.html">Agent Demo</a>
+        <a href="sme-demo.html" class="active">SME Demo</a>
+        <a href="index.html#features">ฟีเจอร์</a>
+        <a href="index.html#contact">ติดต่อ</a>
+      </nav>
+
+      <a href="agent-demo.html" class="btn btn-primary header-cta">Agent Demo</a>
+
+      <button class="hamburger" id="hamburger" aria-label="เปิด/ปิดเมนู" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="เมนูมือถือ">
+      <a href="agent-demo.html">Agent Demo</a>
+      <a href="sme-demo.html">SME Demo</a>
+      <a href="index.html#features">ฟีเจอร์</a>
+      <a href="index.html#contact">ติดต่อ</a>
+      <a href="agent-demo.html" class="btn btn-primary">Agent Demo</a>
+    </nav>
+  </header>
+
+  <!-- ======================================================
+       SME DASHBOARD PAGE
+  ====================================================== -->
+  <div class="sme-page">
+    <div class="container">
+
+      <!-- Page title row -->
+      <div class="sme-header-row">
+        <div>
+          <div class="sme-page-title">แดชบอร์ดการเงินของฉัน</div>
+          <div class="sme-page-sub">My Financial Dashboard &nbsp;—&nbsp; อัปเดตล่าสุด: เมษายน 2026</div>
+        </div>
+        <div class="sme-header-right">
+          <span class="badge badge-success">Demo Mode</span>
+          <button class="btn btn-outline-dark btn-sm">ตั้งค่าโปรไฟล์</button>
+        </div>
+      </div>
+
+      <!-- ================================================
+           SUMMARY CARDS (always visible)
+      ================================================ -->
+      <div class="dashboard-cards">
+
+        <!-- Tax Summary Card -->
+        <div class="dash-card">
+          <div class="dash-card-label">
+            ภาษีประจำปี
+            <span style="font-size:11px;">Tax Summary</span>
+          </div>
+          <div class="dash-card-main">
+            <div class="dash-card-value" id="dashTaxVal">฿45,000</div>
+            <div class="dash-card-sub">ภาษีที่ต้องจ่าย (ประมาณการ)</div>
+          </div>
+          <div style="margin-bottom:8px; font-size:14px;">
+            ประหยัดได้:
+            <strong style="color:var(--color-success);">฿12,000</strong>
+            <span style="font-size:12px; color:var(--color-text-muted);"> หากวางแผนลดหย่อน</span>
+          </div>
+          <div class="dash-card-footer">
+            <button class="btn btn-primary btn-sm" id="optimizeNowBtn">วางแผนลดหย่อน</button>
+          </div>
+        </div>
+
+        <!-- Portfolio Card -->
+        <div class="dash-card">
+          <div class="dash-card-label">
+            พอร์ตการลงทุน
+            <span style="font-size:11px;">Portfolio</span>
+          </div>
+          <div class="dash-card-main" style="display:flex; gap:16px; align-items:center;">
+            <!-- Mini pie chart (filled by JS) -->
+            <div id="dashPie" style="
+              width:64px; height:64px;
+              border-radius:50%;
+              flex-shrink:0;
+              background: conic-gradient(#1A7F64 0% 40%, #E8B931 40% 70%, #4299E1 70% 95%, #9F7AEA 95% 100%);
+            "></div>
+            <div>
+              <div class="dash-card-value">฿360,000</div>
+              <div class="dash-card-sub positive">YTD Return: +8.5%</div>
+            </div>
+          </div>
+          <div style="font-size:13px; color:var(--color-text-muted); margin:8px 0;">
+            หุ้น 40% &nbsp;|&nbsp; กองทุน 30% &nbsp;|&nbsp; เงินสด 25% &nbsp;|&nbsp; คริปโต 5%
+          </div>
+          <div class="dash-card-footer">
+            <button class="btn btn-outline-dark btn-sm" onclick="document.querySelector('[data-tab=portfolio]').click()">ดู Portfolio</button>
+          </div>
+        </div>
+
+        <!-- Insurance Card -->
+        <div class="dash-card">
+          <div class="dash-card-label">
+            ประกันภัยของฉัน
+            <span style="font-size:11px;">Insurance</span>
+          </div>
+          <div class="dash-card-main">
+            <div class="dash-card-value">2 กรมธรรม์</div>
+            <div class="dash-card-sub">กรมธรรม์ที่ใช้งานอยู่</div>
+          </div>
+          <div style="margin-bottom:8px;">
+            <span class="badge badge-warning">ช่องว่างความคุ้มครอง 1 จุด</span>
+          </div>
+          <div class="dash-card-footer">
+            <button class="btn btn-primary btn-sm" id="reviewCoverageBtn">ตรวจสอบความคุ้มครอง</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ================================================
+           TAB NAVIGATION
+      ================================================ -->
+      <div class="sme-tabs-row tabs">
+        <button class="tab-btn sme-tab-btn active" data-tab="tax" role="tab" aria-selected="true">
+          ภาษี / Tax Calculator
+        </button>
+        <button class="tab-btn sme-tab-btn" data-tab="portfolio" role="tab" aria-selected="false">
+          การลงทุน / Portfolio
+        </button>
+        <button class="tab-btn sme-tab-btn" data-tab="insurance" role="tab" aria-selected="false">
+          ประกันภัย / Insurance
+        </button>
+      </div>
+
+      <!-- ================================================
+           TAX CALCULATOR PANEL
+      ================================================ -->
+      <div class="sme-tab-content sme-panel active" id="taxPanel" role="tabpanel">
+        <div class="tax-layout">
+
+          <!-- Input column -->
+          <div class="tax-input-panel">
+            <h4>ข้อมูลรายได้และการลดหย่อน<br /><span style="font-size:13px; font-weight:400; color:var(--color-text-muted);">Income &amp; Deductions</span></h4>
+
+            <div class="form-group">
+              <label class="form-label" for="incomeInput">รายได้ต่อปี (฿) / Annual Income</label>
+              <input class="form-input text-mono" type="number" id="incomeInput" value="600000"
+                     placeholder="600000" />
+            </div>
+
+            <!-- RMF -->
+            <div class="form-group">
+              <div class="range-header">
+                <span class="range-label">RMF (กองทุนรวมเพื่อการเลี้ยงชีพ)</span>
+                <span class="range-value" id="rmfDisplay">฿0</span>
+              </div>
+              <input class="form-range" type="range" id="rmfSlider" name="rmf"
+                     min="0" max="100000" step="5000" value="0" />
+              <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--color-text-muted); margin-top:4px;">
+                <span>฿0</span><span>สูงสุด ฿100,000</span>
+              </div>
+            </div>
+
+            <!-- LTF -->
+            <div class="form-group">
+              <div class="range-header">
+                <span class="range-label">LTF / Thai ESG Fund</span>
+                <span class="range-value" id="ltfDisplay">฿0</span>
+              </div>
+              <input class="form-range" type="range" id="ltfSlider" name="ltf"
+                     min="0" max="100000" step="5000" value="0" />
+              <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--color-text-muted); margin-top:4px;">
+                <span>฿0</span><span>สูงสุด ฿100,000</span>
+              </div>
+            </div>
+
+            <!-- SSF -->
+            <div class="form-group">
+              <div class="range-header">
+                <span class="range-label">SSF (กองทุนรวมเพื่อการออม)</span>
+                <span class="range-value" id="ssfDisplay">฿0</span>
+              </div>
+              <input class="form-range" type="range" id="ssfSlider" name="ssf"
+                     min="0" max="200000" step="10000" value="0" />
+              <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--color-text-muted); margin-top:4px;">
+                <span>฿0</span><span>สูงสุด ฿200,000</span>
+              </div>
+            </div>
+
+            <button class="btn btn-primary" id="calcTaxBtn" style="width:100%; margin-top:8px;">
+              คำนวณภาษี
+            </button>
+
+            <div style="margin-top:16px; padding:12px; background:var(--color-light-bg); border-radius:6px; font-size:13px; color:var(--color-text-muted); line-height:1.6;">
+              <strong style="color:var(--color-text-dark);">หมายเหตุ:</strong>
+              ระบบใช้อัตราภาษี Progressive Rate ของไทย ปี 2567
+              และการหักค่าใช้จ่ายมาตรฐาน ฿100,000 + ค่าลดหย่อนส่วนตัว ฿60,000
+            </div>
+          </div>
+
+          <!-- Result column -->
+          <div class="tax-result-panel" id="taxResultPanel">
+            <h4>ผลการคำนวณภาษี<br /><span style="font-size:13px; font-weight:400; color:var(--color-text-muted);">Tax Calculation Result</span></h4>
+
+            <!-- Summary row -->
+            <div class="tax-summary-row">
+              <div class="tax-summary-item">
+                <div class="tax-summary-label">ภาษีปัจจุบัน</div>
+                <div class="tax-summary-value" id="currentTaxVal">฿45,000</div>
+              </div>
+              <div class="tax-summary-item">
+                <div class="tax-summary-label">หลังวางแผน</div>
+                <div class="tax-summary-value" id="optimizedTaxVal">฿45,000</div>
+              </div>
+              <div class="tax-summary-item highlight">
+                <div class="tax-summary-label">ประหยัดได้</div>
+                <div class="tax-summary-value" id="savingsVal">฿0</div>
+              </div>
+            </div>
+
+            <!-- Bar chart -->
+            <div class="tax-chart-title">เปรียบเทียบภาษี / Tax Comparison</div>
+
+            <div class="tax-bar-row">
+              <div class="tax-bar-label">ภาษีปัจจุบัน</div>
+              <div class="tax-bar-track">
+                <div class="tax-bar-fill current" id="currentBar" style="width:0%;">฿45,000</div>
+              </div>
+            </div>
+            <div class="tax-bar-row">
+              <div class="tax-bar-label">หลังวางแผนลดหย่อน</div>
+              <div class="tax-bar-track">
+                <div class="tax-bar-fill optimized" id="optimizedBar" style="width:0%;">฿45,000</div>
+              </div>
+            </div>
+
+            <!-- Recommendations -->
+            <div class="tax-recs">
+              <div class="tax-recs-title">คำแนะนำในการประหยัดภาษี / Tax Saving Tips</div>
+              <div id="taxRecsContainer"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ================================================
+           PORTFOLIO PANEL
+      ================================================ -->
+      <div class="sme-tab-content sme-panel" id="portfolioPanel" role="tabpanel" style="display:none;">
+        <div class="portfolio-layout">
+
+          <!-- Pie chart column -->
+          <div class="pie-container">
+            <h4 style="align-self:flex-start; margin-bottom:16px;">
+              สัดส่วนสินทรัพย์<br />
+              <span style="font-size:13px; font-weight:400; color:var(--color-text-muted);">Asset Allocation</span>
+            </h4>
+            <!-- Pie chart — filled by JS -->
+            <div id="pieChart" class="pie-chart"></div>
+            <div id="pieLegend" class="pie-legend"></div>
+          </div>
+
+          <!-- Holdings column -->
+          <div>
+            <div class="holdings-header">
+              <h4>รายการถือครอง<br /><span style="font-size:13px; font-weight:400; color:var(--color-text-muted);">Holdings</span></h4>
+              <button class="btn btn-primary btn-sm" id="addInvestmentBtn">+ เพิ่มรายการ</button>
+            </div>
+
+            <table class="holdings-table" aria-label="ตารางรายการถือครอง">
+              <thead>
+                <tr>
+                  <th>Ticker</th>
+                  <th>ชื่อ / Name</th>
+                  <th>จำนวน / Qty</th>
+                  <th>มูลค่า / Value</th>
+                  <th>กำไร/ขาดทุน</th>
+                </tr>
+              </thead>
+              <tbody id="holdingsBody">
+                <!-- Populated by sme-demo.js -->
+              </tbody>
+            </table>
+
+            <div class="portfolio-total-row">
+              <div class="portfolio-total-item">
+                <div class="portfolio-total-label">มูลค่ารวม / Total Value</div>
+                <div class="portfolio-total-value" id="holdingsTotalValue">฿360,000</div>
+              </div>
+              <div class="portfolio-total-item">
+                <div class="portfolio-total-label">ผลตอบแทน YTD</div>
+                <div class="portfolio-total-value positive">+8.5%</div>
+              </div>
+              <div class="portfolio-total-item">
+                <div class="portfolio-total-label">จำนวนสินทรัพย์</div>
+                <div class="portfolio-total-value">4 รายการ</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ================================================
+           INSURANCE PANEL
+      ================================================ -->
+      <div class="sme-tab-content sme-panel" id="insurancePanel" role="tabpanel" style="display:none;">
+
+        <!-- Current policies -->
+        <div class="insurance-section-title">กรมธรรม์ที่มีอยู่ / Current Policies</div>
+        <div class="policy-cards-grid">
+
+          <div class="policy-card">
+            <div class="policy-info">
+              <div class="policy-name">AIA Health Plus</div>
+              <div class="policy-coverage">IPD สูงสุด ฿500,000/ปี | รวม OPD</div>
+              <div class="policy-premium">฿8,400/ปี</div>
+            </div>
+            <span class="badge badge-success">Active</span>
+          </div>
+
+          <div class="policy-card">
+            <div class="policy-info">
+              <div class="policy-name">PA อุบัติเหตุ (PAB)</div>
+              <div class="policy-coverage">ความคุ้มครอง ฿100,000</div>
+              <div class="policy-premium">฿2,400/ปี</div>
+            </div>
+            <span class="badge badge-success">Active</span>
+          </div>
+
+        </div>
+
+        <!-- Gap warning -->
+        <div class="coverage-gap-banner">
+          <div class="gap-warning-icon">⚠</div>
+          <div class="gap-warning-text">
+            <h5>ไม่มีประกันชีวิต — ช่องว่างความคุ้มครองที่สำคัญ</h5>
+            <p>
+              No life insurance coverage detected. แนะนำสำหรับผู้ประกอบอาชีพอิสระและ SME
+              ที่มีผู้พึ่งพิง เพื่อคุ้มครองรายได้ครอบครัวในกรณีฉุกเฉิน
+            </p>
+          </div>
+        </div>
+
+        <!-- Recommended policies -->
+        <div class="insurance-section-title">ผลิตภัณฑ์ที่แนะนำ / Recommended Policies</div>
+        <div class="rec-policy-grid">
+
+          <div class="rec-policy-card">
+            <div class="rec-policy-type">ประกันชีวิต / Life Insurance</div>
+            <div class="rec-policy-name">AIA Premier Life</div>
+            <div class="rec-policy-company">AIA Thailand</div>
+            <div class="rec-policy-details">
+              <div class="rec-policy-detail-row">
+                <span>ทุนประกัน / Coverage</span>
+                <span>฿5,000,000</span>
+              </div>
+              <div class="rec-policy-detail-row">
+                <span>เบี้ยประกัน / Premium</span>
+                <span>฿1,450/เดือน</span>
+              </div>
+              <div class="rec-policy-detail-row">
+                <span>ระยะเวลา / Term</span>
+                <span>20 ปี</span>
+              </div>
+              <div class="rec-policy-detail-row">
+                <span>ลดหย่อนภาษีได้</span>
+                <span style="color:var(--color-success);">สูงสุด ฿100,000/ปี</span>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-sm" style="width:100%;" onclick="showToast('ติดต่อตัวแทนของคุณเพื่อขอใบเสนอราคา')">
+              ขอใบเสนอราคา
+            </button>
+          </div>
+
+          <div class="rec-policy-card">
+            <div class="rec-policy-type">โรคร้ายแรง / Critical Illness</div>
+            <div class="rec-policy-name">Prudential CriticalCare Plus</div>
+            <div class="rec-policy-company">Prudential Thailand</div>
+            <div class="rec-policy-details">
+              <div class="rec-policy-detail-row">
+                <span>ทุนประกัน / Coverage</span>
+                <span>฿1,000,000</span>
+              </div>
+              <div class="rec-policy-detail-row">
+                <span>เบี้ยประกัน / Premium</span>
+                <span>฿750/เดือน</span>
+              </div>
+              <div class="rec-policy-detail-row">
+                <span>โรคที่คุ้มครอง</span>
+                <span>36 โรคร้ายแรง</span>
+              </div>
+              <div class="rec-policy-detail-row">
+                <span>ลดหย่อนภาษีได้</span>
+                <span style="color:var(--color-success);">สูงสุด ฿25,000/ปี</span>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-sm" style="width:100%;" onclick="showToast('ติดต่อตัวแทนของคุณเพื่อขอใบเสนอราคา')">
+              ขอใบเสนอราคา
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- /sme-panel -->
+
+    </div><!-- /container -->
+  </div><!-- /sme-page -->
+
+  <!-- ======================================================
+       FOOTER
+  ====================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span class="footer-copy">&copy; 2026 EasyFin &mdash; Make Your Financial Easier</span>
+      <div class="footer-links">
+        <a href="#">นโยบายความเป็นส่วนตัว</a>
+        <a href="#">ข้อกำหนดการใช้งาน</a>
+        <a href="index.html#contact">ติดต่อเรา</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/shared.js"></script>
+  <script src="js/sme-demo.js"></script>
+</body>
+</html>

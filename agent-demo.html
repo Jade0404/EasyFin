@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EasyFin — Agent Demo | เครื่องมือที่ปรึกษาการเงิน</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/shared.css" />
+  <link rel="stylesheet" href="css/agent-demo.css" />
+</head>
+<body>
+
+  <!-- ======================================================
+       HEADER
+  ====================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a href="index.html" class="logo-link" aria-label="EasyFin หน้าหลัก">
+        <img src="ProjectProposal.png" alt="EasyFin Logo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <span class="logo-fallback">Easy<em>Fin</em></span>
+      </a>
+
+      <nav class="site-nav" aria-label="เมนูหลัก">
+        <a href="agent-demo.html" class="active">Agent Demo</a>
+        <a href="sme-demo.html">SME Demo</a>
+        <a href="index.html#features">ฟีเจอร์</a>
+        <a href="index.html#contact">ติดต่อ</a>
+      </nav>
+
+      <a href="sme-demo.html" class="btn btn-primary header-cta">SME Demo</a>
+
+      <button class="hamburger" id="hamburger" aria-label="เปิด/ปิดเมนู" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="เมนูมือถือ">
+      <a href="agent-demo.html">Agent Demo</a>
+      <a href="sme-demo.html">SME Demo</a>
+      <a href="index.html#features">ฟีเจอร์</a>
+      <a href="index.html#contact">ติดต่อ</a>
+      <a href="sme-demo.html" class="btn btn-primary">SME Demo</a>
+    </nav>
+  </header>
+
+  <!-- ======================================================
+       APP SHELL
+  ====================================================== -->
+  <div class="app-shell">
+
+    <!-- ---- SIDEBAR ---- -->
+    <aside class="sidebar" aria-label="รายชื่อลูกค้า">
+      <div class="sidebar-header">
+        <h2>ลูกค้าของฉัน<br /><span style="font-size:11px;font-weight:400;opacity:0.5;">My Customers</span></h2>
+      </div>
+
+      <div class="sidebar-search">
+        <input type="text" placeholder="ค้นหาลูกค้า..." aria-label="ค้นหาลูกค้า" />
+      </div>
+
+      <!-- Customer list is built by agent-demo.js -->
+      <ul class="sidebar-customers" id="customerList" role="listbox" aria-label="รายชื่อลูกค้า">
+      </ul>
+
+      <div class="sidebar-footer">
+        <button class="btn btn-primary btn-sm" id="addCustomerBtn">
+          + เพิ่มลูกค้าใหม่
+        </button>
+      </div>
+    </aside>
+
+    <!-- ---- MAIN AREA ---- -->
+    <main class="main-area" aria-label="พื้นที่หลัก">
+
+      <!-- Top navigation tabs -->
+      <div class="app-topbar">
+        <div class="app-tabs" role="tablist">
+          <button class="app-tab-btn active" data-tab="dashboard" role="tab" aria-selected="true">
+            แดชบอร์ด
+          </button>
+          <button class="app-tab-btn" data-tab="customers" role="tab" aria-selected="false">
+            ลูกค้าทั้งหมด
+          </button>
+          <button class="app-tab-btn" data-tab="analytics" role="tab" aria-selected="false">
+            Analytics
+          </button>
+          <button class="app-tab-btn" data-tab="reports" role="tab" aria-selected="false">
+            รายงาน
+          </button>
+        </div>
+        <div class="topbar-right">
+          <span style="font-size:13px; color:var(--color-text-muted);">Agent Demo Mode</span>
+          <span class="badge badge-success">Live</span>
+        </div>
+      </div>
+
+      <!-- Scrollable content area -->
+      <div class="main-scroll" role="tabpanel">
+
+        <!-- Empty state (shown before any customer is selected) -->
+        <div class="no-customer-state" id="emptyState" style="display:none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          <h3>เลือกลูกค้าเพื่อเริ่มต้น</h3>
+          <p>คลิกชื่อลูกค้าในแถบซ้าย หรือเพิ่มลูกค้าใหม่เพื่อเริ่มวิเคราะห์การเงิน</p>
+          <button class="btn btn-primary" style="margin-top:24px;" onclick="showNewCustomerForm()">
+            + เพิ่มลูกค้าใหม่
+          </button>
+        </div>
+
+        <!-- New Customer Input Form -->
+        <div id="newCustomerForm" style="display:none;">
+          <div class="customer-form-card">
+            <h3>กรอกข้อมูลลูกค้า <span style="font-size:15px; font-weight:400; color:var(--color-text-muted);">/ New Customer</span></h3>
+            <form id="customerForm" novalidate>
+              <div class="form-grid-2">
+
+                <div class="form-group">
+                  <label class="form-label" for="customerName">ชื่อ-นามสกุล *</label>
+                  <input class="form-input" type="text" id="customerName" name="customerName"
+                         placeholder="เช่น สมชาย ประกอบ" required />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="customerAge">อายุ (ปี) *</label>
+                  <input class="form-input" type="number" id="customerAge" name="customerAge"
+                         placeholder="35" min="18" max="80" required />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="customerIncome">รายได้ต่อเดือน (฿) *</label>
+                  <input class="form-input" type="number" id="customerIncome" name="customerIncome"
+                         placeholder="45000" required />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="customerExpenses">ค่าใช้จ่ายต่อเดือน (฿)</label>
+                  <input class="form-input" type="number" id="customerExpenses" name="customerExpenses"
+                         placeholder="28000" />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="customerDependents">จำนวนผู้พึ่งพา</label>
+                  <input class="form-input" type="number" id="customerDependents" name="customerDependents"
+                         placeholder="2" min="0" />
+                </div>
+
+                <div class="form-group form-grid-full">
+                  <label class="form-label" for="currentInsurance">ประกันที่มีอยู่ (ถ้ามี)</label>
+                  <textarea class="form-textarea" id="currentInsurance" name="currentInsurance"
+                            placeholder="เช่น AIA Health – IPD ฿300K/ปี, ไม่มีประกันชีวิต"></textarea>
+                </div>
+
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">วิเคราะห์ลูกค้า</button>
+                <button type="button" class="btn btn-ghost cancel-form">ยกเลิก</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Results panel (shown after selecting/analysing a customer) -->
+        <div id="resultsPanel" style="display:none;">
+
+          <!-- Profile header row -->
+          <div id="profileHeader"></div>
+
+          <!-- Score + Gap grid -->
+          <div class="results-grid">
+            <div id="scoreCard"></div>
+            <div id="gapCard"></div>
+          </div>
+
+          <!-- Product recommendations -->
+          <div id="recommendationsSection"></div>
+
+          <!-- Action bar -->
+          <div id="actionBar"></div>
+
+        </div>
+
+      </div><!-- /main-scroll -->
+    </main><!-- /main-area -->
+  </div><!-- /app-shell -->
+
+  <!-- ======================================================
+       PROPOSAL MODAL
+  ====================================================== -->
+  <div class="modal-overlay" id="proposalModal" role="dialog" aria-modal="true" aria-labelledby="proposalModalTitle">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="proposalModalTitle">ข้อเสนอแนะทางการเงิน <span style="font-size:14px; font-weight:400; color:var(--color-text-muted);">/ Financial Proposal</span></h3>
+        <button class="modal-close" data-close-modal="proposalModal" aria-label="ปิด">&times;</button>
+      </div>
+      <div class="modal-body">
+        <!-- Populated by agent-demo.js: renderProposalModal() -->
+        <div id="proposalContent">
+          <p style="color:var(--color-text-muted); text-align:center; padding:32px;">กำลังสร้างข้อเสนอ...</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost btn-sm" data-close-modal="proposalModal">ปิด</button>
+        <button class="btn btn-primary btn-sm" onclick="window.showToast('ดาวน์โหลด PDF จะพร้อมในเวอร์ชันถัดไป')">
+          ดาวน์โหลด PDF
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/shared.js"></script>
+  <script src="js/agent-demo.js"></script>
+  <script>
+    /* Render proposal content when modal opens */
+    document.getElementById('proposalModal').addEventListener('transitionend', function (e) {
+      if (e.target === this && this.classList.contains('is-open')) {
+        if (typeof renderProposalModal === 'function') renderProposalModal();
+      }
+    });
+  </script>
+</body>
+</html>
