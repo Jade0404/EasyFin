@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/shared.css" />
   <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/pricing.css" />
 </head>
 <body>
 
@@ -19,7 +20,7 @@
     <div class="container header-inner">
 
       <a href="index.html" class="logo-link" aria-label="EasyFin หน้าหลัก">
-        <img src="ProjectProposal.png" alt="EasyFin Logo"
+        <img src="Project%20Proposal.png" alt="EasyFin Logo"
              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
         <span class="logo-fallback">Easy<em>Fin</em></span>
       </a>
@@ -28,6 +29,7 @@
         <a href="agent-demo.html">Agent Demo</a>
         <a href="sme-demo.html">SME Demo</a>
         <a href="#features">ฟีเจอร์</a>
+        <a href="#pricing">ราคา</a>
         <a href="#contact">ติดต่อ</a>
       </nav>
 
@@ -42,6 +44,7 @@
       <a href="agent-demo.html">Agent Demo</a>
       <a href="sme-demo.html">SME Demo</a>
       <a href="#features">ฟีเจอร์</a>
+      <a href="#pricing">ราคา</a>
       <a href="#contact">ติดต่อ</a>
       <a href="agent-demo.html" class="btn btn-primary">ดูตัวอย่าง</a>
     </nav>
@@ -202,6 +205,246 @@
   </section>
 
   <!-- ======================================================
+       PRICING — B2B ENTERPRISE
+  ====================================================== -->
+  <section class="pricing-b2b" id="pricing">
+    <div class="container">
+
+      <div class="pricing-section-header">
+        <p class="section-label" style="justify-content:center; display:flex;">สำหรับองค์กร / Enterprise</p>
+        <h2>Enterprise Pricing for<br />Insurance Companies</h2>
+        <p>Empower your entire agent force with one unified platform</p>
+      </div>
+
+      <div class="enterprise-card-wrap">
+        <div class="enterprise-card">
+
+          <!-- Most Popular badge -->
+          <div class="enterprise-card-badge">
+            <span class="pricing-badge pricing-badge-gold">&#9733; Most Popular</span>
+          </div>
+
+          <!-- Plan name + price -->
+          <div class="enterprise-card-top">
+            <div>
+              <div class="enterprise-plan-name">Enterprise Plan</div>
+              <div class="enterprise-plan-sub">สำหรับบริษัทประกัน &amp; Financial Advisors</div>
+            </div>
+            <div class="enterprise-price-block">
+              <div class="enterprise-price">
+                <span class="enterprise-price-currency">฿</span>
+                <span class="enterprise-price-amount" id="b2bPrice">1,200</span>
+                <span class="enterprise-price-unit">/agent/month</span>
+              </div>
+              <div class="enterprise-price-annual">Billed annually: ฿14,400/agent/year</div>
+              <div class="enterprise-price-min">50 seats minimum — ฿60,000/month</div>
+            </div>
+          </div>
+
+          <hr class="enterprise-divider" />
+
+          <!-- Features 2-column grid -->
+          <div class="enterprise-features">
+            <div class="enterprise-feature-item">
+              <span class="feature-check">&#10003;</span> Unlimited customer analysis
+            </div>
+            <div class="enterprise-feature-item">
+              <span class="feature-check">&#10003;</span> AI Financial Health Scoring
+            </div>
+            <div class="enterprise-feature-item">
+              <span class="feature-check">&#10003;</span> Coverage Gap Analysis
+            </div>
+            <div class="enterprise-feature-item">
+              <span class="feature-check">&#10003;</span> Smart Product Recommendations
+            </div>
+            <div class="enterprise-feature-item">
+              <span class="feature-check">&#10003;</span> One-click Proposal Generator
+            </div>
+            <div class="enterprise-feature-item">
+              <span class="feature-check">&#10003;</span> Built-in CRM &amp; Pipeline
+            </div>
+            <div class="enterprise-feature-item">
+              <span class="feature-check">&#10003;</span> Customer Follow-up Reminders
+            </div>
+            <div class="enterprise-feature-item">
+              <span class="feature-check">&#10003;</span> Analytics Dashboard
+            </div>
+            <div class="enterprise-feature-item">
+              <span class="feature-check">&#10003;</span> Priority Support (24/7)
+            </div>
+            <div class="enterprise-feature-item">
+              <span class="feature-check">&#10003;</span> Onboarding &amp; Training
+            </div>
+            <div class="enterprise-feature-item">
+              <span class="feature-check">&#10003;</span> API Integration
+            </div>
+            <div class="enterprise-feature-item">
+              <span class="feature-check">&#10003;</span> Custom Branding (100+ seats)
+            </div>
+          </div>
+
+          <hr class="enterprise-divider" />
+
+          <!-- CTA -->
+          <div class="enterprise-cta">
+            <a href="#contact" class="btn btn-accent btn-lg">Request Demo</a>
+            <span class="enterprise-cta-note">ทีมงานจะติดต่อกลับภายใน 24 ชั่วโมง &nbsp;|&nbsp; No commitment required</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================
+       PRICING — B2C INDIVIDUAL / SME
+  ====================================================== -->
+  <section class="pricing-b2c">
+    <div class="container">
+
+      <div class="pricing-section-header">
+        <p class="section-label" style="justify-content:center; display:flex;">สำหรับบุคคลทั่วไป / Individual &amp; SME</p>
+        <h2 style="color:var(--color-dark-bg);">Simple Pricing for<br /><span style="color:var(--color-secondary);">Individuals &amp; SME</span></h2>
+        <p>เลือกแผนที่เหมาะกับคุณ — เริ่มต้นฟรี ไม่ต้องใช้บัตรเครดิต</p>
+      </div>
+
+      <!-- Monthly / Annual toggle -->
+      <div class="pricing-toggle-row">
+        <span class="toggle-label" id="monthlyLabel">รายเดือน</span>
+        <label class="toggle-switch" aria-label="สลับรายเดือน/รายปี">
+          <input type="checkbox" id="billingToggle" checked />
+          <span class="toggle-track"></span>
+          <span class="toggle-thumb"></span>
+        </label>
+        <span class="toggle-label active" id="annualLabel">รายปี</span>
+        <span class="save-badge">ประหยัดสูงสุด 17%</span>
+      </div>
+
+      <!-- 3-tier cards -->
+      <div class="b2c-cards-grid">
+
+        <!-- ---- FREE ---- -->
+        <div class="tier-card">
+          <div class="tier-plan-name">Free</div>
+          <div class="tier-price-block">
+            <div class="tier-price">
+              <span class="tier-price-amount free-price">฿0</span>
+            </div>
+            <div class="tier-price-sub">ใช้งานฟรีตลอดไป</div>
+          </div>
+
+          <div class="tier-cta">
+            <a href="sme-demo.html" class="btn btn-outline-dark">เริ่มต้นฟรี</a>
+          </div>
+
+          <hr class="tier-divider" />
+          <div class="tier-features-title">ฟีเจอร์ที่ได้รับ</div>
+          <ul class="tier-features">
+            <li class="tier-feature-item"><span class="feature-check">&#10003;</span> เครื่องคำนวณภาษีพื้นฐาน</li>
+            <li class="tier-feature-item"><span class="feature-check">&#10003;</span> กรอกข้อมูลด้วยตนเอง</li>
+            <li class="tier-feature-item"><span class="feature-check">&#10003;</span> ประมาณการภาษี</li>
+            <li class="tier-feature-item"><span class="feature-check">&#10003;</span> ยื่นภาษี 1 ครั้ง/ปี</li>
+            <li class="tier-feature-item disabled"><span class="feature-cross">&#10007;</span> ติดตาม Portfolio</li>
+            <li class="tier-feature-item disabled"><span class="feature-cross">&#10007;</span> วิเคราะห์ประกันภัย</li>
+            <li class="tier-feature-item disabled"><span class="feature-cross">&#10007;</span> ปรับแผนภาษีอัจฉริยะ</li>
+            <li class="tier-feature-item disabled"><span class="feature-cross">&#10007;</span> บริการ Support</li>
+          </ul>
+        </div>
+
+        <!-- ---- PREMIUM (featured) ---- -->
+        <div class="tier-card featured">
+          <div class="tier-card-badge">
+            <span class="pricing-badge pricing-badge-green">Best for Freelancers</span>
+          </div>
+          <div class="tier-plan-name">Premium</div>
+          <div class="tier-price-block">
+            <div class="tier-price">
+              <span class="tier-price-currency">฿</span>
+              <span class="tier-price-amount" id="premiumPrice">1,499</span>
+              <span class="tier-price-unit" id="premiumUnit">/year</span>
+            </div>
+            <div class="tier-price-sub" id="premiumSub">
+              เทียบเท่า <strong>฿125/เดือน</strong> &nbsp;<span class="highlight">ประหยัด 16%</span>
+            </div>
+          </div>
+          <div class="tier-trial-note">&#10003; ทดลองใช้ฟรี 14 วัน</div>
+
+          <div class="tier-cta">
+            <a href="sme-demo.html" class="btn btn-primary btn-lg">เริ่มทดลองใช้ฟรี</a>
+            <div class="tier-no-cc">ไม่ต้องใช้บัตรเครดิต</div>
+          </div>
+
+          <hr class="tier-divider" />
+          <div class="tier-features-title">ฟีเจอร์ที่ได้รับ</div>
+          <ul class="tier-features">
+            <li class="tier-feature-item"><span class="feature-check">&#10003;</span> เครื่องคำนวณภาษีขั้นสูง</li>
+            <li class="tier-feature-item"><span class="feature-check">&#10003;</span> วางแผนภาษีรายไตรมาส</li>
+            <li class="tier-feature-item"><span class="feature-check">&#10003;</span> แนะนำ RMF/LTF/SSF</li>
+            <li class="tier-feature-item"><span class="feature-check">&#10003;</span> ประหยัดภาษี ฿5–15K/ปี</li>
+            <li class="tier-feature-item"><span class="feature-check">&#10003;</span> ติดตามค่าใช้จ่าย &amp; สแกนใบเสร็จ</li>
+            <li class="tier-feature-item"><span class="feature-check">&#10003;</span> Portfolio พื้นฐาน (สูงสุด 3 บัญชี)</li>
+            <li class="tier-feature-item"><span class="feature-check">&#10003;</span> ตรวจสอบความคุ้มครองประกัน</li>
+            <li class="tier-feature-item"><span class="feature-check">&#10003;</span> รายงานภาษี PDF</li>
+            <li class="tier-feature-item"><span class="feature-check">&#10003;</span> Email support</li>
+            <li class="tier-feature-item"><span class="feature-check">&#10003;</span> บทความความรู้ทางการเงิน</li>
+          </ul>
+        </div>
+
+        <!-- ---- PRO ---- -->
+        <div class="tier-card">
+          <div class="tier-card-badge">
+            <span class="pricing-badge pricing-badge-gold">Best for SME</span>
+          </div>
+          <div class="tier-plan-name">Pro</div>
+          <div class="tier-price-block">
+            <div class="tier-price">
+              <span class="tier-price-currency">฿</span>
+              <span class="tier-price-amount" id="proPrice">2,999</span>
+              <span class="tier-price-unit" id="proUnit">/year</span>
+            </div>
+            <div class="tier-price-sub" id="proSub">
+              เทียบเท่า <strong>฿250/เดือน</strong> &nbsp;<span class="highlight">ประหยัด 17%</span>
+            </div>
+          </div>
+          <div class="tier-trial-note">&#10003; ทดลองใช้ฟรี 14 วัน</div>
+
+          <div class="tier-cta">
+            <a href="sme-demo.html" class="btn btn-primary btn-lg">เริ่มทดลองใช้ฟรี</a>
+            <div class="tier-no-cc">ไม่ต้องใช้บัตรเครดิต</div>
+          </div>
+
+          <hr class="tier-divider" />
+          <div class="tier-features-title">ฟีเจอร์ที่ได้รับ</div>
+          <ul class="tier-features">
+            <li class="tier-feature-item"><span class="feature-check">&#10003;</span> ทุกอย่างใน Premium</li>
+            <li class="tier-feature-item"><span class="feature-check">&#10003;</span> Portfolio ไม่จำกัดบัญชี</li>
+            <li class="tier-feature-item"><span class="feature-check">&#10003;</span> อัปเดตราคา Real-time</li>
+            <li class="tier-feature-item"><span class="feature-check">&#10003;</span> ประหยัดภาษี ฿10–50K/ปี</li>
+            <li class="tier-feature-item"><span class="feature-check">&#10003;</span> วิเคราะห์ช่องว่างประกันภัย</li>
+            <li class="tier-feature-item"><span class="feature-check">&#10003;</span> Financial Health Score</li>
+            <li class="tier-feature-item"><span class="feature-check">&#10003;</span> วางแผนตามเป้าหมาย</li>
+            <li class="tier-feature-item"><span class="feature-check">&#10003;</span> AI Chatbot support</li>
+            <li class="tier-feature-item"><span class="feature-check">&#10003;</span> Priority support</li>
+            <li class="tier-feature-item"><span class="feature-check">&#10003;</span> ปรึกษาผู้เชี่ยวชาญภาษี 1 ครั้ง/ปี</li>
+            <li class="tier-feature-item"><span class="feature-check">&#10003;</span> Export Excel/PDF</li>
+            <li class="tier-feature-item"><span class="feature-check">&#10003;</span> Advanced Analytics</li>
+            <li class="tier-feature-item"><span class="feature-check">&#10003;</span> API Access</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Below-card row -->
+      <div class="pricing-footer-row">
+        <p>ต้องการเปรียบเทียบฟีเจอร์ทั้งหมด?</p>
+        <a href="#contact">ดูตารางเปรียบเทียบทั้งหมด &rarr;</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================
        STATS BAND
   ====================================================== -->
   <section class="stats-band">
@@ -273,5 +516,64 @@
   </footer>
 
   <script src="js/shared.js"></script>
+  <script>
+    /* --------------------------------------------------------
+       BILLING TOGGLE — Annual (default) / Monthly
+    -------------------------------------------------------- */
+    (function () {
+      var toggle      = document.getElementById('billingToggle');
+      var monthLabel  = document.getElementById('monthlyLabel');
+      var annualLabel = document.getElementById('annualLabel');
+
+      // Price data: [monthly, annual display, annual equiv note]
+      var plans = {
+        premium: {
+          monthly: { amount: '149',   unit: '/month', sub: 'ใช้งานรายเดือน' },
+          annual:  { amount: '1,499', unit: '/year',  sub: 'เทียบเท่า <strong>฿125/เดือน</strong> &nbsp;<span class="highlight">ประหยัด 16%</span>' }
+        },
+        pro: {
+          monthly: { amount: '299',   unit: '/month', sub: 'ใช้งานรายเดือน' },
+          annual:  { amount: '2,999', unit: '/year',  sub: 'เทียบเท่า <strong>฿250/เดือน</strong> &nbsp;<span class="highlight">ประหยัด 17%</span>' }
+        }
+      };
+
+      function applyBilling(isAnnual) {
+        /* Update label active states */
+        annualLabel.classList.toggle('active', isAnnual);
+        monthLabel.classList.toggle('active', !isAnnual);
+
+        /* Update Premium */
+        var prem   = isAnnual ? plans.premium.annual : plans.premium.monthly;
+        document.getElementById('premiumPrice').textContent = prem.amount;
+        document.getElementById('premiumUnit').textContent  = prem.unit;
+        document.getElementById('premiumSub').innerHTML     = prem.sub;
+
+        /* Update Pro */
+        var pro    = isAnnual ? plans.pro.annual : plans.pro.monthly;
+        document.getElementById('proPrice').textContent = pro.amount;
+        document.getElementById('proUnit').textContent  = pro.unit;
+        document.getElementById('proSub').innerHTML     = pro.sub;
+      }
+
+      if (toggle) {
+        /* Start with annual (checked) */
+        applyBilling(true);
+
+        toggle.addEventListener('change', function () {
+          applyBilling(toggle.checked);
+        });
+
+        /* Clicking labels toggles too */
+        monthLabel.addEventListener('click', function () {
+          toggle.checked = false;
+          applyBilling(false);
+        });
+        annualLabel.addEventListener('click', function () {
+          toggle.checked = true;
+          applyBilling(true);
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
